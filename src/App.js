@@ -1,23 +1,38 @@
-import logo from './logo.svg';
 import './App.css';
+import ReusableForm from './components/ReusableForm';
 
 function App() {
+
+  const template = {
+    header: 'Header 1',
+    fields: [
+      {
+        title: 'First Name',
+        type: 'text',
+        name: 'firstName',
+        validationProps:{
+          required:'first name is required'
+        }
+      },
+      {
+        title: 'Last Name',
+        type: 'text',
+        name: 'lastName',
+        validationProps:{
+          required:'last name is required'
+        }
+      },
+      {
+        title: 'Phone',
+        type: 'number',
+        name: 'phone'
+      }
+    ]
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App main-container">
+      <ReusableForm template={template} />
     </div>
   );
 }
